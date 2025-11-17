@@ -360,85 +360,85 @@ class IMipServiceTest extends TestCase {
 		$this->l10n->method('n')->willReturnMap([
 			// singular entire day
 			[
-				'In a minute on %1$s for the entire day',
+				'In %n minute on %1$s for the entire day',
 				'In %n minutes on %1$s for the entire day',
 				1,
 				['July 1, 2024'],
-				'In a minute on July 1, 2024 for the entire day'
+				'In 1 minute on July 1, 2024 for the entire day'
 			],
 			[
-				'In a hour on %1$s for the entire day',
+				'In %n hour on %1$s for the entire day',
 				'In %n hours on %1$s for the entire day',
 				1,
 				['July 1, 2024'],
-				'In a hour on July 1, 2024 for the entire day'
+				'In 1 hour on July 1, 2024 for the entire day'
 			],
 			[
-				'In a day on %1$s for the entire day',
+				'In %n day on %1$s for the entire day',
 				'In %n days on %1$s for the entire day',
 				1,
 				['July 1, 2024'],
-				'In a day on July 1, 2024 for the entire day'
+				'In 1 day on July 1, 2024 for the entire day'
 			],
 			[
-				'In a week on %1$s for the entire day',
+				'In %n week on %1$s for the entire day',
 				'In %n weeks on %1$s for the entire day',
 				1,
 				['July 1, 2024'],
-				'In a week on July 1, 2024 for the entire day'
+				'In 1 week on July 1, 2024 for the entire day'
 			],
 			[
-				'In a month on %1$s for the entire day',
+				'In %n month on %1$s for the entire day',
 				'In %n months on %1$s for the entire day',
 				1,
 				['July 1, 2024'],
-				'In a month on July 1, 2024 for the entire day'
+				'In 1 month on July 1, 2024 for the entire day'
 			],
 			[
-				'In a year on %1$s for the entire day',
+				'In %n year on %1$s for the entire day',
 				'In %n years on %1$s for the entire day',
 				1,
 				['July 1, 2024'],
-				'In a year on July 1, 2024 for the entire day'
+				'In 1 year on July 1, 2024 for the entire day'
 			],
 			// plural entire day
 			[
-				'In a minute on %1$s for the entire day',
+				'In %n minute on %1$s for the entire day',
 				'In %n minutes on %1$s for the entire day',
 				2,
 				['July 1, 2024'],
 				'In 2 minutes on July 1, 2024 for the entire day'
 			],
 			[
-				'In a hour on %1$s for the entire day',
+				'In %n hour on %1$s for the entire day',
 				'In %n hours on %1$s for the entire day',
 				2,
 				['July 1, 2024'],
 				'In 2 hours on July 1, 2024 for the entire day'
 			],
 			[
-				'In a day on %1$s for the entire day',
+				'In %n day on %1$s for the entire day',
 				'In %n days on %1$s for the entire day',
 				2,
 				['July 1, 2024'],
 				'In 2 days on July 1, 2024 for the entire day'
 			],
 			[
-				'In a week on %1$s for the entire day',
+				'In %n week on %1$s for the entire day',
 				'In %n weeks on %1$s for the entire day',
 				2,
 				['July 1, 2024'],
 				'In 2 weeks on July 1, 2024 for the entire day'
 			],
 			[
-				'In a month on %1$s for the entire day',
+				'In %n month on %1$s for the entire day',
 				'In %n months on %1$s for the entire day',
 				2,
 				['July 1, 2024'],
 				'In 2 months on July 1, 2024 for the entire day'
 			],
 			[
-				'In a year on %1$s for the entire day',
+				'In %n year on %1$s for the entire day',
 				'In %n years on %1$s for the entire day',
 				2,
 				['July 1, 2024'],
@@ -446,85 +446,85 @@ class IMipServiceTest extends TestCase {
 			],
 			// singular partial day
 			[
-				'In a minute on %1$s between %2$s - %3$s',
+				'In %n minute on %1$s between %2$s - %3$s',
 				'In %n minutes on %1$s between %2$s - %3$s',
 				1,
 				['July 1, 2024', '8:00 AM', '9:00 AM (America/Toronto)'],
-				'In a minute on July 1, 2024 between 8:00 AM - 9:00 AM (America/Toronto)'
+				'In 1 minute on July 1, 2024 between 8:00 AM - 9:00 AM (America/Toronto)'
 			],
 			[
-				'In a hour on %1$s between %2$s - %3$s',
+				'In %n hour on %1$s between %2$s - %3$s',
 				'In %n hours on %1$s between %2$s - %3$s',
 				1,
 				['July 1, 2024', '8:00 AM', '9:00 AM (America/Toronto)'],
-				'In a hour on July 1, 2024 between 8:00 AM - 9:00 AM (America/Toronto)'
+				'In 1 hour on July 1, 2024 between 8:00 AM - 9:00 AM (America/Toronto)'
 			],
 			[
-				'In a day on %1$s between %2$s - %3$s',
+				'In %n day on %1$s between %2$s - %3$s',
 				'In %n days on %1$s between %2$s - %3$s',
 				1,
 				['July 1, 2024', '8:00 AM', '9:00 AM (America/Toronto)'],
-				'In a day on July 1, 2024 between 8:00 AM - 9:00 AM (America/Toronto)'
+				'In 1 day on July 1, 2024 between 8:00 AM - 9:00 AM (America/Toronto)'
 			],
 			[
-				'In a week on %1$s between %2$s - %3$s',
+				'In %n week on %1$s between %2$s - %3$s',
 				'In %n weeks on %1$s between %2$s - %3$s',
 				1,
 				['July 1, 2024', '8:00 AM', '9:00 AM (America/Toronto)'],
-				'In a week on July 1, 2024 between 8:00 AM - 9:00 AM (America/Toronto)'
+				'In 1 week on July 1, 2024 between 8:00 AM - 9:00 AM (America/Toronto)'
 			],
 			[
-				'In a month on %1$s between %2$s - %3$s',
+				'In %n month on %1$s between %2$s - %3$s',
 				'In %n months on %1$s between %2$s - %3$s',
 				1,
 				['July 1, 2024', '8:00 AM', '9:00 AM (America/Toronto)'],
-				'In a month on July 1, 2024 between 8:00 AM - 9:00 AM (America/Toronto)'
+				'In 1 month on July 1, 2024 between 8:00 AM - 9:00 AM (America/Toronto)'
 			],
 			[
-				'In a year on %1$s between %2$s - %3$s',
+				'In %n year on %1$s between %2$s - %3$s',
 				'In %n years on %1$s between %2$s - %3$s',
 				1,
 				['July 1, 2024', '8:00 AM', '9:00 AM (America/Toronto)'],
-				'In a year on July 1, 2024 between 8:00 AM - 9:00 AM (America/Toronto)'
+				'In 1 year on July 1, 2024 between 8:00 AM - 9:00 AM (America/Toronto)'
 			],
 			// plural partial day
 			[
-				'In a minute on %1$s between %2$s - %3$s',
+				'In %n minute on %1$s between %2$s - %3$s',
 				'In %n minutes on %1$s between %2$s - %3$s',
 				2,
 				['July 1, 2024', '8:00 AM', '9:00 AM (America/Toronto)'],
 				'In 2 minutes on July 1, 2024 between 8:00 AM - 9:00 AM (America/Toronto)'
 			],
 			[
-				'In a hour on %1$s between %2$s - %3$s',
+				'In %n hour on %1$s between %2$s - %3$s',
 				'In %n hours on %1$s between %2$s - %3$s',
 				2,
 				['July 1, 2024', '8:00 AM', '9:00 AM (America/Toronto)'],
 				'In 2 hours on July 1, 2024 between 8:00 AM - 9:00 AM (America/Toronto)'
 			],
 			[
-				'In a day on %1$s between %2$s - %3$s',
+				'In %n day on %1$s between %2$s - %3$s',
 				'In %n days on %1$s between %2$s - %3$s',
 				2,
 				['July 1, 2024', '8:00 AM', '9:00 AM (America/Toronto)'],
 				'In 2 days on July 1, 2024 between 8:00 AM - 9:00 AM (America/Toronto)'
 			],
 			[
-				'In a week on %1$s between %2$s - %3$s',
+				'In %n week on %1$s between %2$s - %3$s',
 				'In %n weeks on %1$s between %2$s - %3$s',
 				2,
 				['July 1, 2024', '8:00 AM', '9:00 AM (America/Toronto)'],
 				'In 2 weeks on July 1, 2024 between 8:00 AM - 9:00 AM (America/Toronto)'
 			],
 			[
-				'In a month on %1$s between %2$s - %3$s',
+				'In %n month on %1$s between %2$s - %3$s',
 				'In %n months on %1$s between %2$s - %3$s',
 				2,
 				['July 1, 2024', '8:00 AM', '9:00 AM (America/Toronto)'],
 				'In 2 months on July 1, 2024 between 8:00 AM - 9:00 AM (America/Toronto)'
 			],
 			[
-				'In a year on %1$s between %2$s - %3$s',
+				'In %n year on %1$s between %2$s - %3$s',
 				'In %n years on %1$s between %2$s - %3$s',
 				2,
 				['July 1, 2024', '8:00 AM', '9:00 AM (America/Toronto)'],
