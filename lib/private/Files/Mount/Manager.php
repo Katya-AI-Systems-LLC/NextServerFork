@@ -16,6 +16,7 @@ use OCP\Files\Config\ICachedMountInfo;
 use OCP\Files\Mount\IMountManager;
 use OCP\Files\Mount\IMountPoint;
 use OCP\Files\NotFoundException;
+use Psr\Log\LoggerInterface;
 
 class Manager implements IMountManager {
 	/** @var MountPoint[] */
@@ -39,6 +40,14 @@ class Manager implements IMountManager {
 		$this->mounts[$mount->getMountPoint()] = $mount;
 		$this->pathCache->clear();
 		$this->inPathCache->clear();
+	}
+
+	public function __destruct() {
+		$logger = \OC::$server->get(LoggerInterface::class);
+		$logger->error(
+			'Registered {count} mounts',
+			['count' => \count($this->mounts)]
+		);
 	}
 
 	/**
