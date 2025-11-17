@@ -12,6 +12,7 @@ use InvalidArgumentException;
 use LogicException;
 use OC\Files\View;
 use OCA\Files_Sharing\Event\ShareMountedEvent;
+use OCA\Talk\Share\RoomShareProvider;
 use OCP\Cache\CappedMemoryCache;
 use OCP\DB\QueryBuilder\IQueryBuilder;
 use OCP\EventDispatcher\IEventDispatcher;
@@ -39,6 +40,7 @@ class MountProvider implements IMountProvider, IPartialMountProvider {
 		IShare::TYPE_USER,
 		IShare::TYPE_GROUP,
 		IShare::TYPE_USERGROUP,
+		RoomShareProvider::SHARE_TYPE_USERROOM,
 		IShare::TYPE_CIRCLE,
 		IShare::TYPE_ROOM,
 		IShare::TYPE_DECK,
@@ -53,6 +55,7 @@ class MountProvider implements IMountProvider, IPartialMountProvider {
 	 */
 	private const TYPE_MAPPING = [
 		IShare::TYPE_USERGROUP => IShare::TYPE_GROUP,
+		RoomShareProvider::SHARE_TYPE_USERROOM => IShare::TYPE_ROOM,
 	];
 
 	/**
