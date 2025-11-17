@@ -91,11 +91,11 @@ class ResultAdapter implements IResult {
 
 	#[Override]
 	public function iterateNumeric(): \Traversable {
-		yield from $this->fetchNumeric();
+		yield from $this->inner->iterateNumeric();
 	}
 
 	#[Override]
 	public function iterateAssociative(): \Traversable {
-		yield from $this->fetchAssociative();
+		yield from $this->inner->iterateAssociative();
 	}
 }
