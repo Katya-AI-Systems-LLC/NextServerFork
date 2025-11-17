@@ -20,6 +20,8 @@ use OC\DB\QueryBuilder\FunctionBuilder\SqliteFunctionBuilder;
 use OC\SystemConfig;
 use OCP\DB\IResult;
 use OCP\DB\QueryBuilder\ICompositeExpression;
+use OCP\DB\QueryBuilder\IExpressionBuilder;
+use OCP\DB\QueryBuilder\IFunctionBuilder;
 use OCP\DB\QueryBuilder\ILiteral;
 use OCP\DB\QueryBuilder\IParameter;
 use OCP\DB\QueryBuilder\IQueryBuilder;
@@ -28,14 +30,6 @@ use OCP\IDBConnection;
 use Psr\Log\LoggerInterface;
 
 class QueryBuilder implements IQueryBuilder {
-	/** @var ConnectionAdapter */
-	private $connection;
-
-	/** @var SystemConfig */
-	private $systemConfig;
-
-	private LoggerInterface $logger;
-
 	/** @var \Doctrine\DBAL\Query\QueryBuilder */
 	private $queryBuilder;
 
@@ -56,10 +50,11 @@ class QueryBuilder implements IQueryBuilder {
 	 * @param ConnectionAdapter $connection
 	 * @param SystemConfig $systemConfig
 	 */
-	public function __construct(ConnectionAdapter $connection, SystemConfig $systemConfig, LoggerInterface $logger) {
-		$this->connection = $connection;
-		$this->systemConfig = $systemConfig;
-		$this->logger = $logger;
+	public function __construct(
+		private ConnectionAdapter $connection,
+		private SystemConfig $systemConfig,
+		private LoggerInterface $logger,
+	) {
 		$this->queryBuilder = new \Doctrine\DBAL\Query\QueryBuilder($this->connection->getInner());
 		$this->helper = new QuoteHelper();
 	}
@@ -89,7 +84,7 @@ class QueryBuilder implements IQueryBuilder {
 	 * For more complex expression construction, consider storing the expression
 	 * builder object in a local variable.
 	 *
-	 * @return \OCP\DB\QueryBuilder\IExpressionBuilder
+	 * @return IExpressionBuilder
 	 */
 	public function expr() {
 		return match($this->connection->getDatabaseProvider()) {
@@ -115,7 +110,7 @@ class QueryBuilder implements IQueryBuilder {
 	 * For more complex function construction, consider storing the function
 	 * builder object in a local variable.
 	 *
-	 * @return \OCP\DB\QueryBuilder\IFunctionBuilder
+	 * @return IFunctionBuilder
 	 */
 	public function func() {
 		return match($this->connection->getDatabaseProvider()) {
@@ -139,7 +134,7 @@ class QueryBuilder implements IQueryBuilder {
 	/**
 	 * Gets the associated DBAL Connection for this query builder.
 	 *
-	 * @return \OCP\IDBConnection
+	 * @return IDBConnection
 	 */
 	public function getConnection() {
 		return $this->connection;
