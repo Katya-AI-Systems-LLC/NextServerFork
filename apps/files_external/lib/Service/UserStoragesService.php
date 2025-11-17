@@ -32,12 +32,11 @@ class UserStoragesService extends StoragesService {
 		BackendService $backendService,
 		DBConfigService $dbConfig,
 		IUserSession $userSession,
-		IUserMountCache $userMountCache,
 		IEventDispatcher $eventDispatcher,
 		IAppConfig $appConfig,
 	) {
 		$this->userSession = $userSession;
-		parent::__construct($backendService, $dbConfig, $userMountCache, $eventDispatcher, $appConfig);
+		parent::__construct($backendService, $dbConfig, $eventDispatcher, $appConfig);
 	}
 
 	protected function readDBConfig() {
